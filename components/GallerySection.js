@@ -1,9 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 const categories = ['all', 'runway', 'editorial', 'outdoor', 'studio', 'awards', 'philanthropy'];
+const layoutClasses = ['tall', 'wide', 'featured', 'stacked'];
+
+function getLayoutClass(index) {
+  return layoutClasses[index % layoutClasses.length];
+}
 
 export default function GallerySection({ items }) {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -25,33 +29,33 @@ export default function GallerySection({ items }) {
         ))}
       </div>
       <div className="gallery">
-        {filteredItems.map((item) => (
-          <figure key={item.src} className="gallery-item" onClick={() => setActiveImage(item)}>
-            <Image
-              src={item.src}
-              alt={item.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              style={{ objectFit: 'cover' }}
-            />
-            <div className="overlay">
-              <div>
-                <strong>{item.title}</strong>
-                <span>{item.category}</span>
+        {filteredItems.map((item, index) => {
+          const layoutClass = getLayoutClass(index);
+          return (
+            <figure key={`${item.src}-${index}`} className={`gallery-item ${layoutClass}`} onClick={() => setActiveImage(item)}>
+              <img
+                src={item.src}
+                alt={item.title}
+                className="gallery-image"
+              />
+              <div className="overlay">
+                <div>
+                  <strong>{item.title}</strong>
+                  <span>{item.category}</span>
+                </div>
               </div>
-            </div>
-          </figure>
-        ))}
+            </figure>
+          );
+        })}
       </div>
       {activeImage && (
         <div className="lightbox open" onClick={() => setActiveImage(null)}>
           <div className="lightbox-content" onClick={(event) => event.stopPropagation()}>
             <div style={{ position: 'relative', width: '100%', height: '80vh' }}>
-              <Image
+              <img
                 src={activeImage.src}
                 alt={activeImage.title}
-                fill
-                style={{ objectFit: 'contain' }}
+                className="lightbox-image"
               />
             </div>
             <div className="lightbox-caption">

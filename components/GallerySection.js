@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { resolveImagePath } from '../lib/images';
 
 const categories = ['all', 'runway', 'editorial', 'outdoor', 'studio', 'awards', 'philanthropy'];
 
@@ -29,7 +28,7 @@ export default function GallerySection({ items }) {
         {filteredItems.map((item) => (
           <figure key={item.src} className="gallery-item" onClick={() => setActiveImage(item)}>
             <Image
-              src={resolveImagePath(item.src)}
+              src={item.src}
               alt={item.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -49,7 +48,7 @@ export default function GallerySection({ items }) {
           <div className="lightbox-content" onClick={(event) => event.stopPropagation()}>
             <div style={{ position: 'relative', width: '100%', height: '80vh' }}>
               <Image
-                src={resolveImagePath(activeImage.src)}
+                src={activeImage.src}
                 alt={activeImage.title}
                 fill
                 style={{ objectFit: 'contain' }}

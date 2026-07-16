@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { resolveImagePath } from '../lib/images';
 
 export default function AchievementsSection({ achievements }) {
   const [selectedAchievement, setSelectedAchievement] = useState(null);
@@ -30,7 +29,7 @@ export default function AchievementsSection({ achievements }) {
           >
             {item.image ? (
               <Image
-                src={resolveImagePath(item.image)}
+                src={item.image}
                 alt={item.title}
                 className="achievement-card-image"
                 width={400}
@@ -55,7 +54,7 @@ export default function AchievementsSection({ achievements }) {
               ×
             </button>
             <Image
-              src={resolveImagePath(selectedAchievement.image)}
+              src={selectedAchievement.image}
               alt={selectedAchievement.title}
               width={600}
               height={500}

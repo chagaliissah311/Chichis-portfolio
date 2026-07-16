@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-export default function AchievementsSection({ achievements }) {
+export default function AchievementsSection({ achievements, sectionTitle, sectionDescription }) {
   const [selectedAchievement, setSelectedAchievement] = useState(null);
 
   return (
-    <section className="reveal" id="achievements">
+    <section className="reveal why-section" id="achievements">
       <div className="section-title">
-        <h2>Achievements & Press</h2>
-        <p>Milestones that reflect both artistic excellence and influence beyond the runway.</p>
+        <h2>{sectionTitle || 'Why you should choose me'}</h2>
+        <p>{sectionDescription || 'Experience, mentorship, and professionalism that brings every runway moment to life.'}</p>
       </div>
       <div className="achievements">
         {achievements.map((item) => (
@@ -41,7 +41,7 @@ export default function AchievementsSection({ achievements }) {
               <span className="tag">{item.tag}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-              <span className="achievement-link">Tap to view story</span>
+              <span className="achievement-link">Know more</span>
             </div>
           </article>
         ))}
@@ -64,13 +64,6 @@ export default function AchievementsSection({ achievements }) {
               <span className="tag">{selectedAchievement.tag}</span>
               <h3>{selectedAchievement.title}</h3>
               <p>{selectedAchievement.detail}</p>
-              {selectedAchievement.highlights?.length ? (
-                <ul>
-                  {selectedAchievement.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
-              ) : null}
             </div>
           </div>
         </div>

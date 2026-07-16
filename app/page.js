@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import HeroSection from '../components/HeroSection';
-import StatsBar from '../components/StatsBar';
 import GallerySection from '../components/GallerySection';
 import AboutSection from '../components/AboutSection';
 import AchievementsSection from '../components/AchievementsSection';
 import ContactSection from '../components/ContactSection';
-import VideoSection from '../components/VideoSection';
+import EducationSection from '../components/EducationSection';
+import ModelStatsSection from '../components/ModelStatsSection';
 import { getSiteContent } from '../lib/content';
 
 export const dynamic = 'force-static';
@@ -63,21 +63,26 @@ export default function HomePage() {
             <a href="#home" className="brand">{content.brand.name}</a>
             <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">☰</button>
             <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-              <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
               <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-              <a href="#achievements" onClick={() => setMenuOpen(false)}>Press</a>
-              <a href="#contact" onClick={() => setMenuOpen(false)}>Book</a>
+              <a href="#portfolio" onClick={() => setMenuOpen(false)}>Recent Photos</a>
+              <a href="#achievements" onClick={() => setMenuOpen(false)}>Why Choose Me</a>
+              <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
+              <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
             </div>
           </nav>
         </header>
 
         <main id="home">
-          <HeroSection brand={content.brand} slides={content.heroSlides} />
-          <StatsBar stats={content.stats} />
+          <HeroSection brand={content.brand} />
+          <AboutSection about={content.about} aboutImage={content.aboutImage} aboutImages={content.aboutImages} />
+          <AchievementsSection
+            achievements={content.achievements}
+            sectionTitle="Why you should choose me"
+            sectionDescription="A confident, experienced woman in fashion who brings insight, fairness, and inspiration to every judging panel and runway moment."
+          />
           <GallerySection items={content.gallery} />
-          <VideoSection video={content.video} />
-          <AboutSection about={content.about} aboutImage={content.aboutImage} />
-          <AchievementsSection achievements={content.achievements} />
+          <EducationSection education={content.education} graphicImage={content.educationGraphic} />
+          <ModelStatsSection stats={content.modelStats} languageStats={content.languageStats} />
           <ContactSection contact={content.contact} />
         </main>
 

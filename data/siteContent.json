@@ -1,9 +1,11 @@
 {
   "brand": {
     "name": "Emmaculate Chichi",
-    "tagline": "Editorial Model · Beauty Queen · Brand Ambassador",
+    "tagline": "Judge · Model Trainer",
     "heroTitle": "Emmaculate Chichi",
-    "heroSubtitle": "Editorial Model · Beauty Queen · Judge · Brand Ambassador"
+    "heroSubtitle": "Judge · Model Trainer",
+    "heroDescription": "A confident, experienced fashion model and judge who blends beauty, purpose, and mentorship into every runway story.",
+    "heroImage": "/images/studio7.jpeg"
   },
   "stats": [
     { "value": "20+", "label": "Editorial Campaigns" },
@@ -43,9 +45,10 @@
   },
   "about": {
     "title": "About Emmaculate",
-    "intro": "A refined presence in fashion, beauty, and public influence—crafted for editorials, campaigns, and cultural impact.",
-    "body1": "Emmaculate Chichi is a polished editorial model known for her commanding presence, graceful confidence, and ability to embody both luxury fashion and authentic storytelling. Her work spans high-fashion editorials, runway moments, brand campaigns, and public-facing events with a naturally elevated poise.",
-    "body2": "She has represented beauty and fashion with distinction, serving in judging capacities, public appearances, and commercial partnerships that align with elegance, visibility, and purpose. Her influence extends beyond the camera through philanthropic advocacy and community-driven initiatives that amplify dignity and confidence.",
+    "intro": "More than a model—Emmaculate is a judge, mentor, and style architect in the world of fashion.",
+    "body1": "Emmaculate Chichi blends beauty, insight, and professionalism into every runway she leads and every stage she judges. Her modeling experience is matched by a strong ability to guide emerging talent with confidence, fairness, and creative vision.",
+    "body2": "As a judge and trainer, she brings a supportive yet exacting perspective, helping contestants grow while celebrating authenticity and poise. Her career is built on thoughtful artistry, community influence, and a passion for elegant storytelling.",
+
     "highlights": [
       "Editorial and fashion campaign experience",
       "Runway and event presence",
@@ -55,12 +58,10 @@
     "quote": "Elegance with purpose, presence with impact."
   },
   "achievements": [
-    { "tag": "Crown", "title": "Miss Curvy UoE 2026/2027", "text": "A defining title that elevated her profile as a beauty queen, fashion presence, and cultural icon.", "image": "/images/studio7.jpeg", "detail": "This milestone marked a powerful moment in her public career, positioning her as a celebrated beauty queen with strong presence in both fashion and community leadership.", "highlights": ["National recognition", "Beauty and elegance platform", "Public influence and leadership"] },
-    { "tag": "Cover", "title": "Pulse Magazine Feature", "text": "Recognized as a rising force in fashion, beauty, and public influence across media platforms.", "image": "/images/pulse_img.jpeg", "detail": "The feature showcased her refined image and contemporary appeal, reinforcing her relevance in the editorial and lifestyle space.", "highlights": ["Editorial spotlight", "Fashion-forward storytelling", "Media visibility"] },
-    { "tag": "Award", "title": "Glow Polls People's Choice", "text": "Celebrated through public voting, reflecting her strong connection with audiences and influence in beauty culture.", "image": "/images/polls_awards.jpeg", "detail": "Her people's choice win reflected the warmth and connection she builds with her audience, proving her presence extends beyond appearances into genuine admiration.", "highlights": ["Public voting success", "Audience connection", "Cultural influence"] },
-    { "tag": "Campaign", "title": "Darling Hair Brand Campaign", "text": "A commercial collaboration that highlighted her elegance, marketability, and brand appeal.", "image": "/images/darline_img.jpeg", "detail": "The campaign captured her polished beauty and commercial versatility, aligning her with a lifestyle brand that values confidence, glow, and sophistication.", "highlights": ["Brand partnership", "Commercial appeal", "Luxury beauty positioning"] },
-    { "tag": "Judging", "title": "Judging & Public Appearances", "text": "Her presence has extended into judging and event representation, reinforcing her authority in beauty and fashion circles.", "image": "/images/outdoor_shoot4.jpeg", "detail": "Her role in judging and hosting public events reflects a level of authority and poise that makes her a trusted voice in beauty and fashion circles.", "highlights": ["Judging presence", "Event authority", "Public-facing influence"] },
-    { "tag": "Community", "title": "Philanthropy & Advocacy", "text": "She has supported young school girls by providing sanitary pads and helping promote health, dignity, and confidence in the community.", "image": "/images/project_img.jpeg", "detail": "Beyond glamour, she continues to create meaningful impact by supporting young school girls and championing dignity, wellness, and self-confidence.", "highlights": ["Community support", "Youth empowerment", "Purpose-led impact"] }
+    { "tag": "Runway", "title": "Beauty of Africa Miss Popularity", "text": "Finalist with a standout presence on one of the continent’s most visible stages.", "image": "/images/outdoor_shoot1.jpeg", "detail": "Emmaculate stood out for her grace and poise, earning recognition as a runway favorite among industry insiders.", "highlights": ["Beauty of Africa finalist", "Runway excellence", "Stage confidence"] },
+    { "tag": "Pageant", "title": "Miss YMCA Second Runner-up", "text": "A premier pageant finalist with strong elegance and competitive spirit.", "image": "/images/studio6.jpeg", "detail": "The title speaks to her versatility and the supportive energy she brings to every competition.", "highlights": ["Pageant success", "Competitive stage presence", "Audience connection"] },
+    { "tag": "Pageant", "title": "Miss UoE Second Runner-up", "text": "Recognized for beauty, style, and performance in a top university pageant.", "image": "/images/studio10.jpeg", "detail": "Her performance blended runway polish with authentic storytelling, earning high marks from judges and spectators.", "highlights": ["University pageant honors", "Elegant presentation", "Judge recognition"] },
+    { "tag": "Judging", "title": "Miss Culture CUEA", "text": "Experienced pageant judge bringing fairness, insight, and mentorship.", "image": "/images/outdoor_shoot3.jpeg", "detail": "Emmaculate evaluates contestants with a balance of empathy, precision, and creative direction.", "highlights": ["Pageant judge", "Talent development", "Leadership presence"] }
   ],
   "contact": {
     "email": "chichiokonda@gmail.com",
@@ -82,5 +83,34 @@
     "/images/outdoor_shoot3.jpeg",
     "/images/studio4.jpeg"
   ],
-  "aboutImage": "/images/outdoor_shoot1.jpeg"
+  "aboutImage": "/images/outdoor_shoot1.jpeg",
+  "aboutImages": [
+    "/images/studio6.jpeg",
+    "/images/studio12.jpeg"
+  ],
+  "educationGraphic": "/images/project_img.jpeg",
+  "education": [
+    {
+      "institution": "University of Eldoret",
+      "qualification": "Bachelor of Education Sciences"
+    },
+    {
+      "institution": "High School",
+      "qualification": "N/A"
+    }
+  ],
+  "modelStats": [
+    { "label": "Height", "value": "5'3" },
+    { "label": "Size", "value": "UK 16 | US 12 | EU 44" },
+    { "label": "Weight", "value": "55kg" },
+    { "label": "Shoe Size", "value": "38" },
+    { "label": "Waist", "value": "26" },
+    { "label": "Eye Colour", "value": "Black" },
+    { "label": "Skin Tone", "value": "Brown" }
+  ],
+  "languageStats": [
+    { "name": "English", "level": 92 },
+    { "name": "Kiswahili", "level": 88 },
+    { "name": "Luhya", "level": 74 }
+  ]
 }

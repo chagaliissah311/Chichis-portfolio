@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { resolveImagePath } from '../lib/images';
 
 export default function AboutSection({ about, aboutImage }) {
   return (
@@ -10,7 +11,7 @@ export default function AboutSection({ about, aboutImage }) {
       <div className="about-grid">
         <div className="about-image">
           <Image
-            src={aboutImage}
+            src={resolveImagePath(aboutImage)}
             alt="Immaculate Chichi in a polished editorial portrait"
             width={500}
             height={600}

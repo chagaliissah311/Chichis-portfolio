@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { resolveImagePath } from '../lib/images';
 
 export default function HeroSection({ brand, slides }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,7 +21,7 @@ export default function HeroSection({ brand, slides }) {
         {slides.map((slide, index) => (
           <div key={slide} className={`hero-slide ${index === currentSlide ? 'active' : ''}`}>
             <Image
-              src={slide}
+              src={resolveImagePath(slide)}
               alt={`Portfolio slide ${index + 1}`}
               fill
               priority={index === 0}

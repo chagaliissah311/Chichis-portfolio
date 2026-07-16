@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: false, // Keep optimization enabled for Vercel
+    unoptimized: true, // Use unoptimized for static public images
     remotePatterns: [], // Add remote patterns if needed
   },
 };

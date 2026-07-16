@@ -9,7 +9,17 @@ const categoryOptions = [
   { value: 'polaroids', label: 'Polaroids' },
 ];
 
-const layoutClasses = ['card-large', 'card-tall', 'card-wide', 'card-small'];
+const layoutClasses = [
+  'card-small',
+  'card-small',
+  'card-small',
+  'card-small',
+  'card-large',
+  'card-small',
+  'card-small',
+  'card-small',
+  'card-small',
+];
 
 function getLayoutClass(index) {
   return layoutClasses[index % layoutClasses.length];

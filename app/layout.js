@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Immaculate Chichi | Model Portfolio',
+  title: 'Emmaculate Chichi | Model Portfolio',
   description: 'Luxury fashion portfolio featuring runway, editorial, and philanthropic work.',
   keywords: ['model portfolio', 'fashion', 'editorial', 'runway', 'beauty queen'],
 };

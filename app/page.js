@@ -83,7 +83,7 @@ export default function HomePage() {
 
         <footer>
           <div className="footer-inner">
-            <div>© 2026 Immaculate Chichi. All rights reserved.</div>
+            <div>© 2026 Emmaculate Chichi. All rights reserved.</div>
             <div className="footer-links">
               <a href="#portfolio">Portfolio</a>
               <a href="#about">About</a>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Immaculate Chichi | Model Portfolio</title>
+    <meta
+      name="description"
+      content="Immaculate Chichi is a model, beauty queen, and philanthropist known for editorial elegance, runway presence, and community impact."
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:title" content="Immaculate Chichi | Model Portfolio" />
+    <meta property="og:description" content="Luxury fashion portfolio featuring runway, editorial, and philanthropic work." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/project_img2.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #050505;
+        --surface: #121212;
+        --surface-2: #1a1a1a;
+        --text: #f5f2eb;
+        --muted: #b8b0a8;
+        --gold: #c7a96b;
+        --gold-2: #e4c483;
+        --border: rgba(255, 255, 255, 0.14);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, var(--bg), #0d0d0d 60%, #080808);
+        overflow-x: hidden;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; width: 100%; height: auto; object-fit: cover; }
+      button, input, select, textarea { font: inherit; }
+
+      .sr-only {
+        position: absolute;
+        width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+      }
+
+      .preloader {
+        position: fixed; inset: 0; z-index: 9999; background: #030303; display: grid; place-items: center; transition: opacity 0.6s ease, visibility 0.6s ease;
+      }
+      .preloader.hidden { opacity: 0; visibility: hidden; }
+      .preloader .ring {
+        width: 90px; height: 90px; border-radius: 50%; border: 2px solid transparent; border-top-color: var(--gold); border-right-color: var(--gold); animation: spin 1s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      .page-shell {
+        min-height: 100vh;
+      }
+
+      header {
+        position: fixed; inset: 0 0 auto 0; z-index: 100; padding: 1.1rem 1.25rem; transition: background 0.3s ease, backdrop-filter 0.3s ease;
+      }
+      header.scrolled { background: rgba(5,5,5,0.72); backdrop-filter: blur(14px); }
+      nav {
+        max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+      }
+      .brand {
+        font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 0.2em; text-transform: uppercase;
+      }
+      .nav-links {
+        display: flex; gap: 1rem; align-items: center;
+      }
+      .nav-links a {
+        color: var(--muted); font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.16em; transition: color 0.3s ease;
+      }
+      .nav-links a:hover { color: var(--text); }
+      .menu-toggle {
+        display: none; border: 0; background: transparent; color: var(--text); font-size: 1.4rem; cursor: pointer;
+      }
+
+      .hero {
+        min-height: 100vh; position: relative; display: grid; place-items: center; overflow: hidden; isolation: isolate;
+      }
+      .hero::before {
+        content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(0,0,0,0.78), rgba(0,0,0,0.36)); z-index: -1;
+      }
+      .hero-slides {
+        position: absolute; inset: 0; z-index: -2;
+      }
+      .hero-slide {
+        position: absolute; inset: 0; opacity: 0; transform: scale(1.05); transition: opacity 1.2s ease, transform 1.2s ease; background-size: cover; background-position: center;
+      }
+      .hero-slide.active { opacity: 1; transform: scale(1); }
+      .hero-content {
+        text-align: center; max-width: 780px; padding: 2rem; animation: fadeUp 1.2s ease both;
+      }
+      .hero-content h1 {
+        font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.9rem); font-weight: 600; letter-spacing: 0.3em; margin: 0 0 1rem;
+      }
+      .hero-content .subtitle {
+        font-size: 1rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-2); margin-bottom: 1.5rem;
+      }
+      .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 1.75rem 0 2.2rem; }
+      .btn {
+        border: 1px solid var(--border); padding: 0.95rem 1.4rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease; cursor: pointer;
+      }
+      .btn:hover { transform: translateY(-2px); border-color: var(--gold); }
+      .btn-primary { background: linear-gradient(135deg, var(--gold), #e5ca8f); color: #0a0a0a; font-weight: 600; border-color: transparent; }
+      .btn-secondary { background: rgba(255,255,255,0.06); }
+      .scroll-indicator {
+        position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: var(--muted); animation: bob 1.7s ease-in-out infinite;
+      }
+      .scroll-indicator span { font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 0.55rem; }
+      .scroll-indicator .mouse {
+        width: 24px; height: 40px; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; position: relative;
+      }
+      .scroll-indicator .mouse::before {
+        content: ''; position: absolute; top: 7px; left: 50%; width: 5px; height: 8px; border-radius: 999px; background: var(--gold); transform: translateX(-50%); animation: wheel 1.3s linear infinite;
+      }
+
+      .stats-bar {
+        background: rgba(255,255,255,0.03); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1rem 1.25rem;
+      }
+      .stats-inner {
+        max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.7rem; text-align: center;
+      }
+      .stat-card {
+        padding: 0.9rem 0.7rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; min-height: 90px; display: flex; flex-direction: column; justify-content: center;
+      }
+      .stat-card strong { display: block; font-size: 1rem; color: var(--gold-2); margin-bottom: 0.3rem; }
+      .stat-card span { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; }
+
+      section { padding: 5rem 1.25rem; }
+      .section-title {
+        max-width: 1200px; margin: 0 auto 1.9rem; display: flex; align-items: end; justify-content: space-between; gap: 1rem;
+      }
+      .section-title h2 {
+        font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.6vw, 2.15rem); margin: 0; letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      .section-title p { color: var(--muted); max-width: 560px; margin: 0; line-height: 1.7; }
+
+      .filter-tabs {
+        max-width: 1200px; margin: 0 auto 1.5rem; display: flex; flex-wrap: wrap; gap: 0.8rem;
+      }
+      .filter-tab {
+        padding: 0.7rem 0.95rem; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--muted); cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.77rem;
+      }
+      .filter-tab.active {
+        background: linear-gradient(135deg, rgba(199,169,107,0.2), rgba(255,255,255,0.08)); color: var(--text); border-color: var(--gold);
+      }
+
+      .gallery {
+        max-width: 1200px; margin: 0 auto; column-count: 3; column-gap: 1rem;
+      }
+      .gallery-item {
+        break-inside: avoid; margin-bottom: 1rem; position: relative; overflow: hidden; border-radius: 18px; background: var(--surface-2); cursor: pointer; transform: translateY(20px); opacity: 0; transition: transform 0.6s ease, opacity 0.6s ease;
+      }
+      .gallery-item.visible { opacity: 1; transform: translateY(0); }
+      .gallery-item img { aspect-ratio: 4 / 5; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; }
+      .gallery-item:hover img { transform: scale(1.05); filter: brightness(1.02); }
+      .gallery-item .overlay {
+        position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.72) 100%); display: flex; align-items: end; padding: 1rem; opacity: 0; transition: opacity 0.3s ease;
+      }
+      .gallery-item:hover .overlay { opacity: 1; }
+      .overlay strong { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; }
+      .overlay span { color: #e7d4b1; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.18em; }
+
+      .about-grid {
+        max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 2rem; align-items: center;
+      }
+      .about-image img { border-radius: 24px; min-height: 560px; box-shadow: 0 25px 65px rgba(0,0,0,0.35); }
+      .about-copy { padding: 0.4rem 0; }
+      .about-copy p { color: var(--muted); line-height: 1.95; font-size: 1rem; }
+      .quote {
+        margin-top: 1.4rem; padding: 1.1rem 1.2rem; border-left: 2px solid var(--gold); background: rgba(199,169,107,0.08); border-radius: 12px; color: #f1dec1; font-style: italic;
+      }
+
+      .achievements {
+        max-width: 1200px; margin: 0 auto; display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .achievement-card { background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; display: flex; flex-direction: column; gap: 0.6rem; position: relative; overflow: hidden; }
+      .achievement-card-inner { padding: 1.3rem; display: flex; flex-direction: column; gap: 0.6rem; }
+      .achievement-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, transparent, rgba(199,169,107,0.2), transparent); transform: translateX(-100%); transition: transform 0.7s ease; }
+      .achievement-card:hover::after { transform: translateX(100%); }
+      .achievement-card h3 { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; }
+      .achievement-card p { color: var(--muted); margin: 0; line-height: 1.7; }
+      .achievement-card .tag { color: var(--gold-2); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem; }
+      .achievement-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0; background: #1a1a1a; display: block; }
+      .achievement-link { color: var(--gold-2); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
+
+      .contact-wrap {
+        max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem;
+      }
+      .contact-card, .form-card {
+        background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; padding: 1.4rem;
+      }
+      .contact-list { display: grid; gap: 0.8rem; margin-top: 1rem; }
+      .contact-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 0.9rem 1rem; border-radius: 14px; }
+      .socials { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+      .socials a { padding: 0.65rem 0.95rem; border-radius: 999px; background: rgba(199,169,107,0.1); color: var(--gold-2); letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.74rem; }
+      .form-card form { display: grid; gap: 0.9rem; }
+      .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+      input, select, textarea {
+        width: 100%; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: var(--text); padding: 0.9rem 0.95rem; border-radius: 12px; outline: none;
+      }
+      textarea { min-height: 120px; resize: vertical; }
+      input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: inset 0 0 0 1px rgba(199,169,107,0.18); }
+      .form-card button { margin-top: 0.2rem; border: 0; }
+
+      footer {
+        padding: 2rem 1.25rem 2.8rem; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02);
+      }
+      .footer-inner {
+        max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--muted);
+      }
+      .footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+      .back-top { color: var(--gold-2); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.8rem; }
+
+      .lightbox {
+        position: fixed; inset: 0; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; padding: 2rem; z-index: 1400;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox-content {
+        position: relative; max-width: min(1000px, 100%); max-height: 92vh; width: 100%; display: grid; place-items: center;
+      }
+      .lightbox img { max-height: 82vh; width: auto; max-width: 100%; object-fit: contain; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+      .lightbox-nav, .lightbox-close {
+        position: absolute; top: 50%; transform: translateY(-50%); border: 0; width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.12); color: #fff; cursor: pointer;
+      }
+      .lightbox-nav.prev { left: -0.6rem; }
+      .lightbox-nav.next { right: -0.6rem; }
+      .lightbox-close { top: 1rem; right: 1rem; transform: none; }
+      .lightbox-caption {
+        position: absolute; left: 1rem; bottom: 1rem; background: rgba(5,5,5,0.72); backdrop-filter: blur(12px); padding: 0.9rem 1rem; border-radius: 12px; color: #f4e9d7; max-width: min(75%, 420px);
+      }
+      .lightbox-caption strong { display: block; margin-bottom: 0.25rem; }
+
+      .cursor-dot { position: fixed; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); pointer-events: none; z-index: 1500; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: transform 0.16s ease; }
+      .cursor-ring { position: fixed; width: 34px; height: 34px; border: 1px solid rgba(199,169,107,0.6); border-radius: 50%; pointer-events: none; z-index: 1500; transform: translate(-50%, -50%); transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease; }
+      .cursor-hover .cursor-dot { transform: translate(-50%, -50%) scale(1.8); }
+      .cursor-hover .cursor-ring { width: 52px; height: 52px; border-color: rgba(255,255,255,0.9); }
+
+      .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(24px);} to { opacity: 1; transform: translateY(0);} }
+      @keyframes bob { 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(8px);} }
+      @keyframes wheel { 0%{ transform: translateX(-50%) translateY(0); opacity: 0;} 40%{ opacity: 1;} 100%{ transform: translateX(-50%) translateY(12px); opacity: 0;} }
+
+      @media (max-width: 980px) {
+        .stats-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .gallery { column-count: 2; }
+        .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+        .achievements { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 760px) {
+        header { padding: 1rem 1rem; }
+        .menu-toggle { display: block; }
+        .nav-links {
+          position: absolute; right: 1rem; top: 4.3rem; flex-direction: column; align-items: flex-start; background: rgba(10,10,10,0.96); padding: 1rem; border: 1px solid var(--border); border-radius: 14px; display: none; min-width: 190px;
+        }
+        .nav-links.open { display: flex; }
+        .hero-content { padding: 1rem; }
+        .hero-actions { flex-direction: column; }
+        .btn { width: 100%; }
+        .stats-inner { grid-template-columns: 1fr 1fr; }
+        .gallery { column-count: 1; }
+        .form-grid { grid-template-columns: 1fr; }
+        .lightbox { padding: 1rem; }
+        .lightbox-nav.prev { left: 0.4rem; }
+        .lightbox-nav.next { right: 0.4rem; }
+        .lightbox-caption { left: 0.6rem; bottom: 0.6rem; max-width: calc(100% - 1.2rem); }
+        .cursor-dot, .cursor-ring { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preloader"><div class="ring"></div></div>
+    <div class="cursor-dot"></div><div class="cursor-ring"></div>
+    <div class="page-shell">
+      <header id="top">
+        <nav>
+          <a href="#home" class="brand">Immaculate Chichi</a>
+          <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+          <div class="nav-links" id="nav-links">
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#achievements">Press</a>
+            <a href="#contact">Book</a>
+          </div>
+        </nav>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="hero-slides" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('assets/images/project_img2.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/pinky.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/studio10.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/outdoor_shoot3.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/studio4.jpeg');"></div>
+          </div>
+          <div class="hero-content">
+            <h1>Immaculate Chichi</h1>
+            <div class="subtitle">Model · Beauty Queen · Philanthropist</div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#portfolio">View Portfolio</a>
+              <a class="btn btn-secondary" href="#contact">Book a Shoot</a>
+            </div>
+          </div>
+          <a class="scroll-indicator" href="#stats" aria-label="Scroll to explore">
+            <span>Explore</span>
+            <div class="mouse"></div>
+          </a>
+        </section>
+
+        <section class="stats-bar reveal" id="stats">
+          <div class="stats-inner">
+            <div class="stat-card"><strong>20+</strong><span>Photo Shoots</span></div>
+            <div class="stat-card"><strong>5+</strong><span>Runway Shows</span></div>
+            <div class="stat-card"><strong>3</strong><span>Brand Campaigns</span></div>
+            <div class="stat-card"><strong>1</strong><span>Magazine Cover</span></div>
+            <div class="stat-card"><strong>2026/2027</strong><span>Miss Curvy UoE</span></div>
+            <div class="stat-card"><strong>∞</strong><span>Community Impact</span></div>
+          </div>
+        </section>
+
+        <section id="portfolio" class="reveal">
+          <div class="section-title">
+            <h2>Featured Portfolio</h2>
+            <p>Editorial sophistication, runway presence, and community-driven storytelling captured in every frame.</p>
+          </div>
+          <div class="filter-tabs" role="tablist" aria-label="Photo categories">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="runway">Runway</button>
+            <button class="filter-tab" data-filter="editorial">Editorial</button>
+            <button class="filter-tab" data-filter="outdoor">Outdoor</button>
+            <button class="filter-tab" data-filter="studio">Studio</button>
+            <button class="filter-tab" data-filter="awards">Awards</button>
+            <button class="filter-tab" data-filter="philanthropy">Philanthropy</button>
+          </div>
+          <div class="gallery" id="gallery"></div>
+        </section>
+
+        <section id="about" class="reveal">
+          <div class="section-title">
+            <h2>About Immaculate</h2>
+            <p>More than a runway presence, she is a voice of elegance, grace, and service.</p>
+          </div>
+          <div class="about-grid">
+            <div class="about-image">
+              <img src="assets/images/outdoor_shoot1.jpeg" alt="Immaculate Chichi in a polished editorial portrait" loading="lazy" />
+            </div>
+            <div class="about-copy">
+              <p>Immaculate Chichi is a modern model whose work effortlessly blends fashion intelligence with emotional depth. From high-fashion editorials to stage-ready runway moments, her presence is rooted in versatility, poise, and a captivating sense of storytelling.</p>
+              <p>She was crowned Miss Curvy UoE 2026/2027, featured on the cover of Pulse Magazine, and continues to shape cultural conversations through both glamour and purpose. Her work extends beyond the lens into community outreach, where she champions confidence and giving back through meaningful initiatives.</p>
+              <div class="quote">"More than a model — a voice for the community."</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="achievements" class="reveal">
+          <div class="section-title">
+            <h2>Achievements & Press</h2>
+            <p>Milestones that reflect both artistic excellence and influence beyond the runway.</p>
+          </div>
+          <div class="achievements" id="achievements-container"></div>
+        </section>
+
+        <section id="contact" class="reveal">
+          <div class="section-title">
+            <h2>Book a Shoot</h2>
+            <p>For editorial, runway, commercial, or charitable collaborations, let's create something unforgettable.</p>
+          </div>
+          <div class="contact-wrap">
+            <div class="contact-card">
+              <h3 style="margin-top:0; font-family:'Cormorant Garamond', serif; font-size:1.4rem;">Contact & Socials</h3>
+              <div class="contact-list">
+                <div class="contact-item"><strong>Email:</strong><br />book@immaculatechichi.com</div>
+                <div class="contact-item"><strong>Location:</strong><br />Available for international and local bookings</div>
+                <div class="contact-item"><strong>Preferred:</strong><br />Editorial, runway, commercial, and philanthropy-focused projects</div>
+              </div>
+              <div class="socials">
+                <a href="#" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="#" target="_blank" rel="noreferrer">TikTok</a>
+                <a href="#" target="_blank" rel="noreferrer">X</a>
+              </div>
+            </div>
+            <div class="form-card">
+              <form>
+                <div class="form-grid">
+                  <label><span class="sr-only">Name</span><input type="text" placeholder="Name" required /></label>
+                  <label><span class="sr-only">Email</span><input type="email" placeholder="Email" required /></label>
+                </div>
+                <div class="form-grid">
+                  <label><span class="sr-only">Shoot Type</span><select required><option value="">Shoot Type</option><option>Editorial</option><option>Runway</option><option>Commercial</option><option>Other</option></select></label>
+                  <label><span class="sr-only">Date</span><input type="date" /></label>
+                </div>
+                <label><span class="sr-only">Message</span><textarea placeholder="Message"></textarea></label>
+                <button class="btn btn-primary" type="submit">Send Inquiry</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <div>© 2026 Emmaculate Chichi. All rights reserved.</div>
+          <div class="footer-links">
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Booking</a>
+            <a class="back-top" href="#home">Back to top</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-label="Image preview">
+      <div class="lightbox-content">
+        <button class="lightbox-nav prev" aria-label="Previous image">←</button>
+        <img id="lightbox-image" src="" alt="Portfolio preview" />
+        <button class="lightbox-nav next" aria-label="Next image">→</button>
+        <button class="lightbox-close" aria-label="Close preview">✕</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <script>
+      const galleryItems = [
+        { src: 'assets/images/project_img2.jpeg', title: 'Editorial Glow', category: 'editorial' },
+        { src: 'assets/images/pinky.jpeg', title: 'Golden Hour Runway', category: 'runway' },
+        { src: 'assets/images/studio12.jpeg', title: 'Studio Portrait', category: 'studio' },
+        { src: 'assets/images/studio10.jpeg', title: 'Urban Editorial', category: 'editorial' },
+        { src: 'assets/images/studio11.jpeg', title: 'Outdoors in Motion', category: 'outdoor' },
+        { src: 'assets/images/darline_img.jpeg', title: 'Awards Presence', category: 'awards' },
+        { src: 'assets/images/outdoor_shoot.jpeg', title: 'Community Spotlight', category: 'philanthropy' },
+        { src: 'assets/images/outdoor_shoot3.jpeg', title: 'Studio Glamour', category: 'studio' },
+        { src: 'assets/images/outdoor_shoot1.jpeg', title: 'Runway Confidence', category: 'runway' },
+        { src: 'assets/images/outdoor_shoot2.jpeg', title: 'Outdoor Feature', category: 'outdoor' },
+        { src: 'assets/images/polls_awards.jpeg', title: 'Editorial Fashion', category: 'editorial' },
+        { src: 'assets/images/studio_img1.jpeg', title: 'Luxury Campaign', category: 'studio' },
+        { src: 'assets/images/studio4.jpeg', title: 'Golden Frame', category: 'editorial' },
+        { src: 'assets/images/studio2.jpeg', title: 'Runway Aura', category: 'runway' },
+        { src: 'assets/images/studio3.jpeg', title: 'Candid Outdoors', category: 'outdoor' },
+        { src: 'assets/images/pulse_img.jpeg', title: 'Feature Portrait', category: 'studio' },
+        { src: 'assets/images/studio5.jpeg', title: 'Awards Spotlight', category: 'awards' },
+        { src: 'assets/images/project_img.jpeg', title: 'Purposeful Presence', category: 'philanthropy' },
+        { src: 'assets/images/studio7.jpeg', title: 'Classic Editorial', category: 'editorial' },
+        { src: 'assets/images/studio6.jpeg', title: 'Modern Studio', category: 'studio' }
+      ];
+
+      const gallery = document.getElementById('gallery');
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const caption = document.getElementById('lightbox-caption');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const header = document.querySelector('header');
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      let currentSlide = 0;
+      let activeFilter = 'all';
+      let currentIndex = 0;
+
+      function renderGallery() {
+        const filtered = activeFilter === 'all' ? galleryItems : galleryItems.filter(item => item.category === activeFilter);
+        gallery.innerHTML = filtered.map((item, index) => `
+          <figure class="gallery-item reveal visible" data-index="${index}" data-category="${item.category}">
+            <img src="${item.src}" alt="${item.title}" loading="lazy" />
+            <div class="overlay">
+              <div>
+                <strong>${item.title}</strong>
+                <span>${item.category}</span>
+              </div>
+            </div>
+          </figure>
+        `).join('');
+        attachGalleryEvents();
+      }
+
+      function attachGalleryEvents() {
+        document.querySelectorAll('.gallery-item').forEach((item) => {
+          item.addEventListener('click', () => {
+            currentIndex = Number(item.getAttribute('data-index'));
+            openLightbox(currentIndex);
+          });
+        });
+      }
+
+      function openLightbox(index) {
+        const filtered = activeFilter === 'all' ? galleryItems : galleryItems.filter(item => item.category === activeFilter);
+        const item = filtered[index];
+        if (!item) return;
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.title;
+        caption.innerHTML = `<strong>${item.title}</strong><span>${item.category}</span>`;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      function navigateLightbox(direction) {
+        const filtered = activeFilter === 'all' ? galleryItems : galleryItems.filter(item => item.category === activeFilter);
+        let nextIndex = currentIndex + direction;
+        if (nextIndex < 0) nextIndex = filtered.length - 1;
+        if (nextIndex >= filtered.length) nextIndex = 0;
+        currentIndex = nextIndex;
+        const item = filtered[nextIndex];
+        if (!item) return;
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.title;
+        caption.innerHTML = `<strong>${item.title}</strong><span>${item.category}</span>`;
+      }
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(btn => btn.classList.remove('active'));
+          tab.classList.add('active');
+          activeFilter = tab.dataset.filter;
+          renderGallery();
+        });
+      });
+
+      document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+      document.querySelector('.lightbox-nav.prev').addEventListener('click', () => navigateLightbox(-1));
+      document.querySelector('.lightbox-nav.next').addEventListener('click', () => navigateLightbox(1));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowRight') navigateLightbox(1);
+        if (event.key === 'ArrowLeft') navigateLightbox(-1);
+      });
+
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 30);
+        document.querySelectorAll('.reveal').forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 140) section.classList.add('visible');
+        });
+      });
+
+      setInterval(() => {
+        slides.forEach((slide, index) => slide.classList.toggle('active', index === currentSlide));
+        currentSlide = (currentSlide + 1) % slides.length;
+      }, 5000);
+
+      const achievements = [
+        { tag: "Crown", title: "Miss Curvy UoE 2026/2027", text: "A defining title that elevated her presence as a beauty queen and cultural icon.", image: "assets/images/studio7.jpeg", detail: "This milestone marked a powerful moment in her public career, positioning her as a celebrated beauty queen with strong presence in both fashion and community leadership.", highlights: ["National recognition", "Beauty and elegance platform", "Public influence and leadership"] },
+        { tag: "Cover", title: "Pulse Magazine Feature", text: "Recognized as a rising force in fashion, beauty, and public influence.", image: "assets/images/pulse_img.jpeg", detail: "The feature showcased her refined image and contemporary appeal, reinforcing her relevance in the editorial and lifestyle space.", highlights: ["Editorial spotlight", "Fashion-forward storytelling", "Media visibility"] },
+        { tag: "Award", title: "Glow Polls People's Choice", text: "Celebrated through public voting, reflecting her strong connection with audiences.", image: "assets/images/polls_awards.jpeg", detail: "Her people's choice win reflected the warmth and connection she builds with her audience.", highlights: ["Public voting success", "Audience connection", "Cultural influence"] },
+        { tag: "Campaign", title: "Darling Hair Brand Campaign", text: "A commercial collaboration that highlighted her elegance and brand appeal.", image: "assets/images/darline_img.jpeg", detail: "The campaign captured her polished beauty and commercial versatility.", highlights: ["Brand partnership", "Commercial appeal", "Luxury beauty positioning"] },
+        { tag: "Judging", title: "Judging & Public Appearances", text: "Her presence has extended into judging and event representation.", image: "assets/images/outdoor_shoot4.jpeg", detail: "Her role in judging and hosting public events reflects authority and poise.", highlights: ["Judging presence", "Event authority", "Public-facing influence"] },
+        { tag: "Community", title: "Philanthropy & Advocacy", text: "She has supported young school girls by providing sanitary pads.", image: "assets/images/project_img.jpeg", detail: "Beyond glamour, she continues to create meaningful impact by supporting young school girls.", highlights: ["Community support", "Youth empowerment", "Purpose-led impact"] }
+      ];
+
+      function renderAchievements() {
+        const container = document.getElementById('achievements-container');
+        if (!container) return;
+        container.innerHTML = achievements.map(item => `
+          <article class="achievement-card">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+            <div class="achievement-card-inner">
+              <span class="tag">${item.tag}</span>
+              <h3>${item.title}</h3>
+              <p>${item.text}</p>
+              <span class="achievement-link">Tap to view story</span>
+            </div>
+          </article>
+        `).join('');
+      }
+
+      window.addEventListener('load', () => {
+        document.querySelector('.preloader').classList.add('hidden');
+        renderGallery();
+        renderAchievements();
+        document.querySelectorAll('.reveal').forEach(section => section.classList.add('visible'));
+      });
+
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorRing = document.querySelector('.cursor-ring');
+      document.addEventListener('mousemove', (event) => {
+        cursorDot.style.left = event.clientX + 'px';
+        cursorDot.style.top = event.clientY + 'px';
+        cursorRing.style.left = event.clientX + 'px';
+        cursorRing.style.top = event.clientY + 'px';
+      });
+      document.querySelectorAll('a, button, .gallery-item, input, select, textarea').forEach((element) => {
+        element.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        element.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    </script>
+  </body>
+</html>

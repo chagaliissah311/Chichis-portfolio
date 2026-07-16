@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function HeroSection({ brand, slides }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -17,7 +18,15 @@ export default function HeroSection({ brand, slides }) {
     <section className="hero">
       <div className="hero-slides" aria-hidden="true">
         {slides.map((slide, index) => (
-          <div key={slide} className={`hero-slide ${index === currentSlide ? 'active' : ''}`} style={{ backgroundImage: `url('${slide}')` }} />
+          <div key={slide} className={`hero-slide ${index === currentSlide ? 'active' : ''}`}>
+            <Image
+              src={slide}
+              alt={`Portfolio slide ${index + 1}`}
+              fill
+              priority={index === 0}
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
         ))}
       </div>
       <div className="hero-content">

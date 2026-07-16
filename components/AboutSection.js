@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function AboutSection({ about, aboutImage }) {
   return (
     <section className="reveal" id="about">
@@ -7,7 +9,14 @@ export default function AboutSection({ about, aboutImage }) {
       </div>
       <div className="about-grid">
         <div className="about-image">
-          <img src={aboutImage} alt="Immaculate Chichi in a polished editorial portrait" loading="lazy" />
+          <Image
+            src={aboutImage}
+            alt="Immaculate Chichi in a polished editorial portrait"
+            width={500}
+            height={600}
+            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+            priority
+          />
         </div>
         <div className="about-copy">
           <p>{about.body1}</p>

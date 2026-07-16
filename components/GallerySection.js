@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const categories = ['all', 'runway', 'editorial', 'outdoor', 'studio', 'awards', 'philanthropy'];
 
@@ -26,7 +27,13 @@ export default function GallerySection({ items }) {
       <div className="gallery">
         {filteredItems.map((item) => (
           <figure key={item.src} className="gallery-item" onClick={() => setActiveImage(item)}>
-            <img src={item.src} alt={item.title} loading="lazy" />
+            <Image
+              src={item.src}
+              alt={item.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: 'cover' }}
+            />
             <div className="overlay">
               <div>
                 <strong>{item.title}</strong>
@@ -39,7 +46,14 @@ export default function GallerySection({ items }) {
       {activeImage && (
         <div className="lightbox open" onClick={() => setActiveImage(null)}>
           <div className="lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={activeImage.src} alt={activeImage.title} />
+            <div style={{ position: 'relative', width: '100%', height: '80vh' }}>
+              <Image
+                src={activeImage.src}
+                alt={activeImage.title}
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
             <div className="lightbox-caption">
               <strong>{activeImage.title}</strong>
               <span>{activeImage.category}</span>
@@ -51,3 +65,4 @@ export default function GallerySection({ items }) {
     </section>
   );
 }
+

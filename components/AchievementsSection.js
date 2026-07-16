@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function AchievementsSection({ achievements }) {
   const [selectedAchievement, setSelectedAchievement] = useState(null);
@@ -26,7 +27,16 @@ export default function AchievementsSection({ achievements }) {
               }
             }}
           >
-            {item.image ? <img src={item.image} alt={item.title} className="achievement-card-image" /> : null}
+            {item.image ? (
+              <Image
+                src={item.image}
+                alt={item.title}
+                className="achievement-card-image"
+                width={400}
+                height={300}
+                style={{ objectFit: 'cover' }}
+              />
+            ) : null}
             <div className="achievement-card-inner">
               <span className="tag">{item.tag}</span>
               <h3>{item.title}</h3>
@@ -43,7 +53,13 @@ export default function AchievementsSection({ achievements }) {
             <button className="achievement-modal-close" onClick={() => setSelectedAchievement(null)} aria-label="Close achievement details">
               ×
             </button>
-            <img src={selectedAchievement.image} alt={selectedAchievement.title} />
+            <Image
+              src={selectedAchievement.image}
+              alt={selectedAchievement.title}
+              width={600}
+              height={500}
+              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+            />
             <div className="achievement-modal-body">
               <span className="tag">{selectedAchievement.tag}</span>
               <h3>{selectedAchievement.title}</h3>

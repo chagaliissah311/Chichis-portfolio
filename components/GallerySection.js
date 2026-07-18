@@ -129,6 +129,7 @@ export default function GallerySection({ items }) {
             <div className="lightbox-caption">
               <strong>{activeImage.title}</strong>
               <span>{activeImage.normalizedCategory}</span>
+              {activeImage.description ? <p>{activeImage.description}</p> : null}
             </div>
           </div>
           <button className="lightbox-nav lightbox-nav-next" onClick={(event) => { event.stopPropagation(); showNext(); }} aria-label="Next image">›</button>

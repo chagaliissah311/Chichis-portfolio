@@ -18,7 +18,7 @@ export default function EducationSection({ education, graphicImage }) {
         </div>
         <div className="education-visual">
           <Image
-            src={graphicImage}
+            src={graphicImage || '/images/education.jpeg'}
             alt="Education graphic"
             width={520}
             height={420}

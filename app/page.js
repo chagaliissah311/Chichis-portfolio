@@ -8,6 +8,8 @@ import AchievementsSection from '../components/AchievementsSection';
 import ContactSection from '../components/ContactSection';
 import EducationSection from '../components/EducationSection';
 import ModelStatsSection from '../components/ModelStatsSection';
+import RunwaySection from '../components/RunwaySection';
+import ProjectsSection from '../components/ProjectsSection';
 import { getSiteContent } from '../lib/content';
 
 export const dynamic = 'force-static';
@@ -77,10 +79,13 @@ export default function HomePage() {
           <AboutSection about={content.about} aboutImage={content.aboutImage} aboutImages={content.aboutImages} />
           <AchievementsSection
             achievements={content.achievements}
+            summary={content.achievementsSummary}
             sectionTitle="Why you should choose me"
             sectionDescription="A confident, experienced woman in fashion who brings insight, fairness, and inspiration to every judging panel and runway moment."
           />
           <GallerySection items={content.gallery} />
+          <RunwaySection runway={content.runway} />
+          <ProjectsSection projects={content.projects} />
           <EducationSection education={content.education} graphicImage={content.educationGraphic} />
           <ModelStatsSection stats={content.modelStats} languageStats={content.languageStats} />
           <ContactSection contact={content.contact} />

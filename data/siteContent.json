@@ -5,7 +5,14 @@
     "heroTitle": "Emmaculate Chichi",
     "heroSubtitle": "Judge · Model Trainer",
     "heroDescription": "A confident, experienced fashion model and judge who blends beauty, purpose, and mentorship into every runway story.",
-    "heroImage": "/images/studio7.jpeg"
+    "heroImage": "/images/studio7.jpeg",
+    "heroSlides": [
+      "/images/studio7.jpeg",
+      "/images/project_img2.jpeg",
+      "/images/studio4.jpeg",
+      "/images/outdoor_shoot3.jpeg",
+      "/images/pinky.jpeg"
+    ]
   },
   "stats": [
     { "value": "20+", "label": "Editorial Campaigns" },
@@ -57,11 +64,26 @@
     ],
     "quote": "Elegance with purpose, presence with impact."
   },
+  "achievementsSummary": {
+    "sections": [
+      {
+        "title": "PAGEANT TITLES",
+        "items": [
+          "👑 Miss Curvy Kenya 2026 – People's Choice Winner.",
+          "👑 Miss Curvy Kenya Vihiga County 2026.",
+          "👑 Current Miss Curvy University of Eldoret 2026/2027.",
+          "🥈 1st Runner-Up – Miss Curvy University of Eldoret 2025/2026.",
+          "🌟 Miss UOE Popularity 2024/2025 (First Ever Pageant Title)."
+        ]
+      }
+    ]
+  },
   "achievements": [
-    { "tag": "Runway", "title": "Beauty of Africa Miss Popularity", "text": "Finalist with a standout presence on one of the continent’s most visible stages.", "image": "/images/outdoor_shoot1.jpeg", "detail": "Emmaculate stood out for her grace and poise, earning recognition as a runway favorite among industry insiders.", "highlights": ["Beauty of Africa finalist", "Runway excellence", "Stage confidence"] },
-    { "tag": "Pageant", "title": "Miss YMCA Second Runner-up", "text": "A premier pageant finalist with strong elegance and competitive spirit.", "image": "/images/studio6.jpeg", "detail": "The title speaks to her versatility and the supportive energy she brings to every competition.", "highlights": ["Pageant success", "Competitive stage presence", "Audience connection"] },
-    { "tag": "Pageant", "title": "Miss UoE Second Runner-up", "text": "Recognized for beauty, style, and performance in a top university pageant.", "image": "/images/studio10.jpeg", "detail": "Her performance blended runway polish with authentic storytelling, earning high marks from judges and spectators.", "highlights": ["University pageant honors", "Elegant presentation", "Judge recognition"] },
-    { "tag": "Judging", "title": "Miss Culture CUEA", "text": "Experienced pageant judge bringing fairness, insight, and mentorship.", "image": "/images/outdoor_shoot3.jpeg", "detail": "Emmaculate evaluates contestants with a balance of empathy, precision, and creative direction.", "highlights": ["Pageant judge", "Talent development", "Leadership presence"] }
+    { "tag": "Pageant", "title": "👑 Miss Curvy Kenya 2026 – People's Choice Winner.", "text": "Pageant title highlighting audience connection and strong public support.", "image": "/images/polls_awards.jpeg" },
+    { "tag": "Pageant", "title": "👑 Miss Curvy Kenya Vihiga County 2026.", "text": "County-level title reflecting strong community presence and stage confidence.", "image": "/images/misscurvy_vihiga.jpeg" },
+    { "tag": "Pageant", "title": "👑 Current Miss Curvy University of Eldoret 2026/2027.", "text": "Current university pageant title demonstrating consistent performance and leadership.", "image": "/images/studio7.jpeg" },
+    { "tag": "Pageant", "title": "🥈 1st Runner-Up – Miss Curvy University of Eldoret 2025/2026.", "text": "A top runner-up finish showing competitive excellence and stage presence.", "image": "/images/runway3.jpeg" },
+    { "tag": "Pageant", "title": "🌟 Miss UOE Popularity 2024/2025 (First Ever Pageant Title).", "text": "The first pageant title earned through audience popularity and memorable performance.", "image": "/images/runway5.jpeg" }
   ],
   "contact": {
     "email": "chichiokonda@gmail.com",
@@ -88,17 +110,61 @@
     "/images/studio6.jpeg",
     "/images/studio12.jpeg"
   ],
-  "educationGraphic": "/images/project_img.jpeg",
+  "educationGraphic": "/images/education.jpeg",
   "education": [
     {
       "institution": "University of Eldoret",
-      "qualification": "Bachelor of Education Sciences"
+      "qualification": "Bachelor of Education  homeSciences & Technology."
     },
     {
       "institution": "High School",
-      "qualification": "N/A"
+      "qualification": "Chavavo highschool"
+    },
+  {
+      "institution": "Primary Level",
+      "qualification": "Chanzeywe Primary School"
     }
   ],
+  "runway": {
+    "title": "Runway Highlights",
+    "subtitle": "A curated selection of runway moments that showcase poise, presence, and shape-defining movement.",
+    "description": "From stage lighting to tailored silhouettes, these runway images highlight the refined energy and professional direction that make Emmaculate stand out on the catwalk.",
+    "highlights": [
+      "Iconic runway campaigns",
+      "Designer showcases and stage presence",
+      "Professional runway styling and timing"
+    ],
+    "items": [
+      { "src": "/images/runway1.jpeg", "title": "Runway Moment 1", "category": "Runway" },
+      { "src": "/images/runway2.jpeg", "title": "Runway Moment 2", "category": "Runway" },
+      { "src": "/images/runway3.jpeg", "title": "Runway Moment 3", "category": "Runway" },
+      { "src": "/images/runway4.jpeg", "title": "Runway Moment 4", "category": "Runway" }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of campaigns, editorials, and collaborations that reflect creativity, intention, and visual storytelling.",
+    "items": [
+      {
+        "tag": "Editorial",
+        "title": "Purposeful Presence",
+        "description": "A creative campaign that blends beauty direction with strong narrative styling.",
+        "image": "/images/project_img.jpeg"
+      },
+      {
+        "tag": "Campaign",
+        "title": "Luxury Studio Moment",
+        "description": "A polished studio collaboration focused on refined lighting, confident posing, and premium fashion.",
+        "image": "/images/studio12.jpeg"
+      },
+      {
+        "tag": "Film",
+        "title": "Cinematic Model Story",
+        "description": "An atmospheric visual project featuring dramatic movement, texture, and editorial ambience.",
+        "image": "/images/project_img2.jpeg"
+      }
+    ]
+  },
   "modelStats": [
     { "label": "Height", "value": "5'3" },
     { "label": "Size", "value": "UK 16 | US 12 | EU 44" },

@@ -10,6 +10,7 @@ import EducationSection from '../components/EducationSection';
 import ModelStatsSection from '../components/ModelStatsSection';
 import RunwaySection from '../components/RunwaySection';
 import ProjectsSection from '../components/ProjectsSection';
+import VideoSection from '../components/VideoSection';
 import { getSiteContent } from '../lib/content';
 
 export const dynamic = 'force-static';
@@ -86,6 +87,7 @@ export default function HomePage() {
           <GallerySection items={content.gallery} />
           <RunwaySection runway={content.runway} />
           <ProjectsSection projects={content.projects} />
+          <VideoSection video={content.video} />
           <EducationSection education={content.education} graphicImage={content.educationGraphic} />
           <ModelStatsSection stats={content.modelStats} languageStats={content.languageStats} />
           <ContactSection contact={content.contact} />

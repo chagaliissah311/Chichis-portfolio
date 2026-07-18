@@ -12,10 +12,22 @@ export default function ContactSection({ contact }) {
     const payload = {
       name: formData.get('name'),
       email: formData.get('email'),
+      phone: formData.get('phone'),
       shootType: formData.get('shootType'),
       date: formData.get('date'),
       message: formData.get('message'),
     };
+
+    const whatsappNumber = contact.whatsapp?.toString().trim().replace(/[^\d+]/g, '');
+    const message = `Booking inquiry from ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone || 'Not provided'}\nShoot Type: ${payload.shootType}\nDate: ${payload.date || 'Not provided'}\nMessage: ${payload.message || 'No message'}`;
+
+    if (whatsappNumber) {
+      const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/^\+/, '')}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      setStatus('Opening WhatsApp...');
+      event.currentTarget.reset();
+      return;
+    }
 
     const response = await fetch('/api/contact', {
       method: 'POST',
@@ -42,6 +54,9 @@ export default function ContactSection({ contact }) {
           <h3>Contact & Socials</h3>
           <div className="contact-list">
             <div className="contact-item"><strong>Email:</strong><br />{contact.email}</div>
+            {contact.whatsapp ? (
+              <div className="contact-item"><strong>WhatsApp:</strong><br />{contact.whatsapp}</div>
+            ) : null}
             <div className="contact-item"><strong>Location:</strong><br />{contact.location}</div>
             <div className="contact-item"><strong>Availability:</strong><br />{contact.availability}</div>
             <div className="contact-item"><strong>Preferred:</strong><br />{contact.preferred}</div>
@@ -85,7 +100,10 @@ export default function ContactSection({ contact }) {
               <label><input name="email" type="email" placeholder="Email" required /></label>
             </div>
             <div className="form-grid">
+              <label><input name="phone" type="tel" placeholder="Phone" required /></label>
               <label><select name="shootType" required><option value="">Shoot Type</option><option>Editorial</option><option>Runway</option><option>Commercial</option><option>Other</option></select></label>
+            </div>
+            <div className="form-grid">
               <label><input name="date" type="date" /></label>
             </div>
             <label><textarea name="message" placeholder="Message"></textarea></label>

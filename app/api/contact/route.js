@@ -23,6 +23,7 @@ export async function POST(request) {
         <h3>New booking inquiry</h3>
         <p><strong>Name:</strong> ${body.name}</p>
         <p><strong>Email:</strong> ${body.email}</p>
+        <p><strong>Phone:</strong> ${body.phone || 'Not provided'}</p>
         <p><strong>Shoot Type:</strong> ${body.shootType}</p>
         <p><strong>Date:</strong> ${body.date || 'Not provided'}</p>
         <p><strong>Message:</strong> ${body.message || 'No message'}</p>
